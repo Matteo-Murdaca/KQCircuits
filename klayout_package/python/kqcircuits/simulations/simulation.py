@@ -304,6 +304,9 @@ class Simulation:
             type = port.type
             text = f"{type}_{number}"
             w = 2
+            x = 1
+            y1 = 1
+            y2 = 1
             region = pya.Region(pya.DBox(x-w, y1, x+w, y2).to_itype(self.layout.dbu))
             self.visualise_region(region, text, "simulation_ports", port.signal_location)
 
