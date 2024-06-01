@@ -299,6 +299,14 @@ class Simulation:
         self.build()
         self.create_simulation_layers()
 
+        for port in self.ports:
+            number = port.number
+            type = port.type
+            text = f"{type}_{number}"
+            w = 2
+            region = pya.Region(pya.DBox(x-w, y1, x+w, y2).to_itype(self.layout.dbu))
+            self.visualise_region(region, text, "simulation_ports", port.signal_location)
+
     @classmethod
     def from_cell(cls, cell, margin=300, grid_size=1, **kwargs):
         """Create a Simulation from an existing cell.
